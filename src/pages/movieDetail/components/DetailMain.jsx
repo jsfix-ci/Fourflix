@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import theme from '../../../styles/theme';
 import StarRate from '../../../components/StarRate';
 import ImageCard from '../../../components/ImageCard';
-const DetailMain = ({ data }) => {
+
+const DetailMain = function ({ data }) {
   const {
     title,
     original_title,
