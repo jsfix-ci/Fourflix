@@ -19,23 +19,6 @@ const DetailMain = ({ data }) => {
 
   const url = process.env.REACT_APP_IMAGE_URL;
 
-  // const MOVIE_SIMPLE_INFO = [
-  //   {
-  //     name: '개봉 일자',
-  //     contents: release_date,
-  //   },
-  //   {
-  //     name: '장르',
-  //     contents: genres,
-  //   },
-  //   {
-  //     name: '국가',
-  //     contents: production_countries,
-  //   },
-  //   { name: '러닝타임', contents: runtime },
-  //   { name: '평점', contents: vote_average },
-  // ];
-
   return (
     <Wrapper>
       <Poster>
