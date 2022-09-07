@@ -59,7 +59,7 @@ const SearchResultText = styled.p`
   align-items: center;
 `;
 
-const SearchWord = styled.p`
+const SearchWord = styled.span`
   font-size: 34px;
   font-weight: bold;
   color: red;
