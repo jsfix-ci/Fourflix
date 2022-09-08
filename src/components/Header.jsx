@@ -5,7 +5,6 @@ import { useRef, useState } from 'react';
 
 function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
   const { pathname } = useLocation();
 
   const inputRef = useRef(null);
@@ -32,13 +31,11 @@ function Header() {
   };
 
   const handleSearchValue = e => {
-    setSearchValue(e.target.value);
-  };
-
-  // TODO: 여기서 API 호출
-  const handleSearchResultSubmit = e => {
-    e.preventDefault();
-    navigate(`/search?q=${searchValue}`);
+    if (e.target.value === '') {
+      navigate('/movie/popular');
+      return;
+    }
+    navigate(`/search?q=${e.target.value}`);
   };
 
   return (
@@ -78,16 +75,13 @@ function Header() {
               clipRule="evenodd"
             ></path>
           </motion.svg>
-          <SearchForm onSubmit={handleSearchResultSubmit}>
-            <SearchInput
-              ref={inputRef}
-              onChange={handleSearchValue}
-              value={searchValue}
-              animate={inputAnimation}
-              initial={{ scaleX: 0 }}
-              transition={{ type: 'linear' }}
-            ></SearchInput>
-          </SearchForm>
+          <SearchInput
+            ref={inputRef}
+            onChange={handleSearchValue}
+            animate={inputAnimation}
+            initial={{ scaleX: 0 }}
+            transition={{ type: 'linear' }}
+          ></SearchInput>
         </SearchContainer>
       </NavItemContainer>
     </StyledNav>
@@ -144,8 +138,6 @@ const SearchContainer = styled.span`
     height: 25px;
   }
 `;
-
-const SearchForm = styled.form``;
 
 const SearchInput = styled(motion.input)`
   border: 2px solid ${props => props.theme.BLACK};

@@ -16,7 +16,6 @@ function Search() {
       enabled: !!searchWord,
       refetchOnWindowFocus: false,
       staleTime: 180000,
-      suspense: true,
     }
   );
 
